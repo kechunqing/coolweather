@@ -1,6 +1,7 @@
 package com.kcq.coolweather.main;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.kcq.coolweather.MainActivity;
 import com.kcq.coolweather.R;
 import com.kcq.coolweather.db.City;
 import com.kcq.coolweather.db.Country;
@@ -82,6 +84,19 @@ public class ChooseFragment extends Fragment {
                     selectedCity = cityList.get(position);
                     Log.d(TAG, "onItemClick cityId:"+selectedCity.getCityCode());
                     queryCountries();
+                } else if (selectedLevel == LEVEL_COUNTRY) {
+                    String weatherId = countryList.get(position).getWeatherId();
+                    if(getActivity() instanceof MainActivity) {
+                        Intent it = new Intent(getContext(), WeatherActivity.class);
+                        it.putExtra("weather_id", weatherId);
+                        startActivity(it);
+                        getActivity().finish();
+                    } else if (getActivity() instanceof WeatherActivity) {
+                        WeatherActivity activity = (WeatherActivity) getActivity();
+                        activity.drawerLayout.closeDrawers();
+                        activity.swipeRefreshLayout.setRefreshing(true);
+                        activity.requestWeather(weatherId);
+                    }
                 }
             }
         });
