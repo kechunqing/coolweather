@@ -85,7 +85,7 @@ public class WeatherActivity extends AppCompatActivity {
         String bingPic = pref.getString("bing_pic", null);
         final String weatherId;
         if (bingPic != null) {
-            Glide.with(this).load(bingPic).into(ivBing);
+//            Glide.with(this).load(bingPic).into(ivBing);
         } else {
             loadBingPic();
         }
@@ -222,7 +222,7 @@ public class WeatherActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(WeatherActivity.this).load(bingPic).into(ivBing);
+//                        Glide.with(WeatherActivity.this).load(bingPic).into(ivBing);
                     }
                 });
             }

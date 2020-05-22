@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import com.kcq.coolweather.gson.Weather
+import com.kcq.coolweather.kotlin.Util
 import com.kcq.coolweather.main.WeatherActivity
 
 class MainActivity : AppCompatActivity() {
@@ -20,4 +21,5 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
+
 }
