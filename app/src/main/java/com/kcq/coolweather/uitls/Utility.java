@@ -10,10 +10,15 @@ import com.kcq.coolweather.db.Province;
 import com.kcq.coolweather.gson.Weather;
 import com.kcq.coolweather.jbtab.gson.SmartTabProductGroup;
 import com.kcq.coolweather.jbtab.gson.SmartTabTitleGroup;
+import com.kcq.coolweather.kotlin.LearnKotlinKt;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
+
+import kotlin.jvm.functions.Function2;
 
 /**
  * The type Utility.
@@ -157,5 +162,20 @@ public class Utility {
             Log.e(TAG , "jsonerror"+e.getMessage());
 //            return null;
         }
+    }
+
+    public void testKotlin(){
+        /*LearnKotlinKt.num1AndNum2(100, 100, new Function2<Integer, Integer, Integer>() {
+            @Override
+            public Integer invoke(Integer integer, Integer integer2) {
+                return null;
+            }
+        });*/
+        LearnKotlinKt.num1AndNum2(100, 100, new Function2<Integer, Integer, Integer>() {
+            @Override
+            public Integer invoke(Integer integer, Integer integer2) {
+                return null;
+            }
+        });
     }
 }
